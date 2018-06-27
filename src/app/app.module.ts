@@ -1,3 +1,4 @@
+import { CounterService } from './counter-service.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +22,8 @@ import { MaPeepsService } from './ma-peeps.service';
     HttpModule
   ],
   providers: [
-    MaPeepsService
+    MaPeepsService,
+    CounterService
   ],
   bootstrap: [AppComponent]
 })

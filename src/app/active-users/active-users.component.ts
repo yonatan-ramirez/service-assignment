@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MaPeepsService } from '../ma-peeps.service';
+import { CounterService } from '../counter-service.service';
 
 @Component({
   selector: 'app-active-users',
@@ -11,9 +12,10 @@ export class ActiveUsersComponent implements OnInit {
 
   onSetToInactive(id: number) {
     this.maPeepsService.onSetToInactive(id);
+
   }
 
-  constructor(private maPeepsService: MaPeepsService) {
+  constructor(private maPeepsService: MaPeepsService, private counterService: CounterService) {
 
   }
 
