@@ -1,15 +1,24 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MaPeepsService } from './../ma-peeps.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-inactive-users',
   templateUrl: './inactive-users.component.html',
   styleUrls: ['./inactive-users.component.css']
 })
-export class InactiveUsersComponent {
-  @Input() users: string[];
-  @Output() userSetToActive = new EventEmitter<number>();
+export class InactiveUsersComponent implements OnInit {
+  users: Array<string> = [];
 
   onSetToActive(id: number) {
-    this.userSetToActive.emit(id);
+    this.maPeepsService.onSetToActive(id);
   }
+
+  constructor(private maPeepsService: MaPeepsService) {
+
+  }
+
+  ngOnInit() {
+    this.users = this.maPeepsService.inactiveUsers;
+  }
+
 }
